@@ -1,4 +1,5 @@
+const config = require("./server/config/config");
 var app = require("./server/server");
-
-app.listen(3000);
-console.log("on port 3000");
+const logger = require("./server/util/logger");
+app.listen(config.port);
+console.log("listening on http://localhost:" + config.port);
