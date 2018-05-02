@@ -6,10 +6,11 @@ const bodyparser = require("body-parser");
 const app = express();
 const _ = require("lodash");
 const port = 3000;
-
+const morgan = require("morgan");
 const lionRouter = require("./lions");
 const tigerRouter = require("./tigers");
 
+app.use(morgan("dev"));
 app.use(express.static("client"));
 app.use(bodyparser.urlencoded({ extended: true }));
 
@@ -35,6 +36,4 @@ app.use((err, req, res, next) => {
     res.status(500).send(err);
   }
 });
-app.listen(port, function() {
-  console.log("listening on localhost:", port);
-});
+module.exports = app;
