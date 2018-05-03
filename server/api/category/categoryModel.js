@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const CategorySchema = new Schema({
   username: {
     type: String,
     unique: true,
     required: true
   }
 });
-module.exports = mongoose.model("user", PostSchema);
+module.exports = mongoose.model("category", CategorySchema);
